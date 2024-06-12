@@ -7,7 +7,13 @@ namespace Repository
 {
     public class UserRepository : IUser
     {
-        private readonly DataBaseContext _context = new DataBaseContext();
+        private readonly DataBaseContext _context;
+
+        public UserRepository(DataBaseContext context)
+        {
+            _context = context;
+        }
+
         public void Add(User user)
         {
             _context.User.Add(user);
